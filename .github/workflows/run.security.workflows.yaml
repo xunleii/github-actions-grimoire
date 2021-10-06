@@ -1,0 +1,10 @@
+name: Security hardening (Github Actions workflows)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths: [".github/workflows/**"]
+
+jobs:
+  ci_harden_security:
+    uses: xunleii/github-actions-grimoire/.github/workflows/security.workflows.yaml # NOTE: always uses latest revision for testing purpose
