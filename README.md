@@ -6,7 +6,7 @@ So, after having read the Github blog post about [keeping our Github Actions DRY
 
 ## List of shared Github Actions
 ### Security
-- [Security hardening for Github Actions](.github/workflows/security/workflows.yaml) ([see usage](.github/workflows/run.security.workflows.yaml))
+- [Security hardening for Github Actions](.github/workflows/security.workflows.yaml) ([see usage](.github/workflows/run.security.workflows.yaml))
   - Checks if you all of yours Github Actions uses pinned Actions
   - Checks javascript syntax with CodeQL
 
