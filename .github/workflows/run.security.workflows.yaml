@@ -7,4 +7,4 @@ on:
 
 jobs:
   ci_harden_security:
-    uses: xunleii/github-actions-grimoire/.github/workflows/security/workflows.yaml # NOTE: always uses latest revision for testing purpose
+    uses: xunleii/github-actions-grimoire/.github/workflows/security.workflows.yaml@main # NOTE: always uses latest revision for testing purpose
