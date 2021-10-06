@@ -18,7 +18,9 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@1b37538d9c22dd3f3d0c52992fa20da98683bd34 # renovate: tag=v1.0.15
         with:
-          languages: javascript
+          languages: |
+            javascript
+            python
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@1b37538d9c22dd3f3d0c52992fa20da98683bd34 # renovate: tag=v1.0.15
         with:
