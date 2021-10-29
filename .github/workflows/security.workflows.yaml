@@ -4,6 +4,9 @@ on:
   workflow_call:
 
 jobs:
+  # CI harden security tries to keep your github actions secure by following these simple rules:
+  # - Check if no issues are found on your Github Action
+  # - Ensure that all action and reusable workflow are pinned using directly a commit SHA
   ci_harden_security:
     name: Github Action security hardening
     runs-on: ubuntu-latest
@@ -12,16 +15,84 @@ jobs:
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2.3.4
 
-      - name: Ensure SHA pinned actions
-        uses: xunleii/github-actions-ensure-sha-pinned-actions@b4c4ce9a7106417ca03741f946f5f43edcaee6ba # renovate: tag=v1.1.0
+      - name: Lint your Github Actions
+        uses: github/super-linter@fd9c4286d3de3fdd9258a395570cae287f13f974 # renovate: tag=v4.8.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILTER_REGEX_INCLUDE: .github/workflows/*.ya?ml
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@1b37538d9c22dd3f3d0c52992fa20da98683bd34 # renovate: tag=v1.0.15
-        with:
-          languages: |
-            javascript
-            python
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@1b37538d9c22dd3f3d0c52992fa20da98683bd34 # renovate: tag=v1.0.15
-        with:
-          checkout_path: ${{ github.workspace }}/.github/workflows
+          # Disable all unused linters
+          VALIDATE_ANSIBLE: false
+          VALIDATE_ARM: false
+          VALIDATE_BASH: false
+          VALIDATE_BASH_EXEC: false
+          VALIDATE_CPP: false
+          VALIDATE_CLANG_FORMAT: false
+          VALIDATE_CLOJURE: false
+          VALIDATE_CLOUDFORMATION: false
+          VALIDATE_COFFEESCRIPT: false
+          VALIDATE_CSHARP: false
+          VALIDATE_CSS: false
+          VALIDATE_DART: false
+          VALIDATE_DOCKERFILE: false
+          VALIDATE_DOCKERFILE_HADOLINT: false
+          VALIDATE_EDITORCONFIG: false
+          VALIDATE_ENV: false
+          VALIDATE_GITLEAKS: false
+          VALIDATE_GHERKIN: false
+          VALIDATE_GO: false
+          VALIDATE_GOOGLE_JAVA_FORMAT: false
+          VALIDATE_GROOVY: false
+          VALIDATE_HTML: false
+          VALIDATE_JAVA: false
+          VALIDATE_JAVASCRIPT_ES: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_JSCPD: false
+          VALIDATE_JSON: false
+          VALIDATE_JSX: false
+          VALIDATE_KOTLIN: false
+          VALIDATE_KUBERNETES_KUBEVAL: false
+          VALIDATE_LATEX: false
+          VALIDATE_LUA: false
+          VALIDATE_MARKDOWN: false
+          VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_OPENAPI: false
+          VALIDATE_PERL: false
+          VALIDATE_PHP: false
+          VALIDATE_PHP_BUILTIN: false
+          VALIDATE_PHP_PHPCS: false
+          VALIDATE_PHP_PHPSTAN: false
+          VALIDATE_PHP_PSALM: false
+          VALIDATE_PROTOBUF: false
+          VALIDATE_PYTHON: false
+          VALIDATE_PYTHON_BLACK: false
+          VALIDATE_PYTHON_FLAKE8: false
+          VALIDATE_PYTHON_ISORT: false
+          VALIDATE_PYTHON_MYPY: false
+          VALIDATE_PYTHON_PYLINT: false
+          VALIDATE_POWERSHELL: false
+          VALIDATE_R: false
+          VALIDATE_RAKU: false
+          VALIDATE_RUBY: false
+          VALIDATE_RUST_2015: false
+          VALIDATE_RUST_2018: false
+          VALIDATE_RUST_CLIPPY: false
+          VALIDATE_SHELL_SHFMT: false
+          VALIDATE_SNAKEMAKE_LINT: false
+          VALIDATE_SNAKEMAKE_SNAKEFMT: false
+          VALIDATE_STATES: false
+          VALIDATE_SQL: false
+          VALIDATE_SQLFLUFF: false
+          VALIDATE_TEKTON: false
+          VALIDATE_TERRAFORM_TFLINT: false
+          VALIDATE_TERRAFORM_TERRASCAN: false
+          VALIDATE_TERRAGRUNT: false
+          VALIDATE_TSX: false
+          VALIDATE_TYPESCRIPT_ES: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_XML: false
+          VALIDATE_YAML: false
+
+      - name: Ensure SHA pinned actions
+        uses: xunleii/github-actions-ensure-sha-pinned-actions@2eaa0713ff409846b288063c9d2d3b74577aab95 # NOTE: use forked action waiting
+
