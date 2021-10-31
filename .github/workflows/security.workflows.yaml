@@ -24,5 +24,5 @@ jobs:
           ./actionlint -color
 
       - name: Ensure SHA pinned actions
-        uses: xunleii/github-actions-ensure-sha-pinned-actions@2eaa0713ff409846b288063c9d2d3b74577aab95 # NOTE: use forked action waiting
+        uses: zgosalvez/github-actions-ensure-sha-pinned-actions@7692976b7529253c9610ff3242b2693d678847b0 # renovate: tag=v1.1.0
 
