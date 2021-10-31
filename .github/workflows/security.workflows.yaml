@@ -25,4 +25,3 @@ jobs:
 
       - name: Ensure SHA pinned actions
         uses: zgosalvez/github-actions-ensure-sha-pinned-actions@7692976b7529253c9610ff3242b2693d678847b0 # renovate: tag=v1.1.0
-
