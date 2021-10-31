@@ -6,10 +6,17 @@ So, after having read the Github blog post about [keeping our Github Actions DRY
 
 ## List of shared Github Actions
 ### Security
-- [Security hardening for Github Actions](.github/workflows/security.workflows.yaml) ([see usage](.github/workflows/run.security.workflows.yaml))<br>
-  [![Security hardening (Github Actions workflows)](https://github.com/xunleii/github-actions-grimoire/actions/workflows/run.security.workflows.yaml/badge.svg)](https://github.com/xunleii/github-actions-grimoire/actions/workflows/run.security.workflows.yaml)
+- [Security hardening for Github Actions](.github/workflows/security.workflows.yaml) ([see usage](.github/workflows/zzz_run.security.workflows.yaml))<br>
+  [![Security hardening (Github Actions workflows)](https://github.com/xunleii/github-actions-grimoire/actions/workflows/zzz_run.security.workflows.yaml/badge.svg)](https://github.com/xunleii/github-actions-grimoire/actions/workflows/run.security.workflows.yaml)
+  - Checks if yours Github Actions are valid
   - Checks if you all of yours Github Actions uses pinned Actions
-  - Checks javascript syntax with CodeQL
+
+### Pull requests CI
+- [IaaS - Terraform CI (for pull requests)](.github/workflows/terraform.pull_requests.yaml) ([see usage](.github/workflows/zzz_run.terraform.pull_requests.yaml))<br>
+  [![IaaS - Terraform CI (for pull requests) - Spell](https://github.com/xunleii/github-actions-grimoire/actions/workflows/terraform.pull_requests.yaml/badge.svg?branch=main)](https://github.com/xunleii/github-actions-grimoire/actions/workflows/terraform.pull_requests.yaml)
+  - Checks if your Terraform files are valid and formatted
+  - Comments PRs with error information or plan state
+  - Handles several Terraform projects in a single PR
 
 ## Can I contribute to this "book" ?
 Of course, and I really appreciate any contribution on this repo to get a sort of shared workflow collection that everyone could use.
