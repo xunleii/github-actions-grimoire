@@ -1,0 +1,34 @@
+name: Iaas - Terraform CI (for pull requests)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      # if fixtures are updated
+      - fixtures/terraform/**.tf
+      - fixtures/terraform/**/.terraform.lock.hcl
+
+      # if workflows are updated
+      - .github/workflows/terraform.pull_requests.yaml
+      - .github/workflows/zzz_run.terraform.pull_requests.yaml
+
+jobs:
+  tf_project_01:
+    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.yaml@77ac7873f0f99f7f5ea1e6690b9b1b316aeea17f
+    with:
+      terraform_workdir: fixtures/terraform/project-01
+      terraform_vars: |
+        var: ...
+    secrets:
+      terraform_vars: |
+        secret: ***
+
+  tf_project_02:
+    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.yaml@77ac7873f0f99f7f5ea1e6690b9b1b316aeea17f
+    with:
+      terraform_workdir: fixtures/terraform/project-02
+      terraform_vars: |
+        var: ...
+    secrets:
+      terraform_vars: |
+        secret: ***
