@@ -1,4 +1,4 @@
-name: IaaS - Terraform CI (for pull requests) - Spell
+name: IaaS - Terraform CI (for pull requests)
 
 on:
   workflow_call:

@@ -1,4 +1,4 @@
-name: Security hardening (Github Actions workflows) - Spell
+name: Security hardening (Github Actions workflows)
 
 on:
   workflow_call:
