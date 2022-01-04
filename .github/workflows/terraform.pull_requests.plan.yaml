@@ -3,13 +3,14 @@ name: IaaS - Terraform CI (for pull requests) - Plan
 on:
   workflow_call:
     inputs:
-      terraform_workdir:
-        description: Working directory where Terraform files are
+      after_lint:
+        default: true
+        description: Is this workflow run after lint?
         required: false
-        default: "."
-        type: string
-      terraform_version:
-        description: Terraform version that should we use (latest by default)
+        type: boolean
+
+      env:
+        description: List of environment variables to set (YAML formatted)
         required: false
         type: string
 
@@ -18,13 +19,21 @@ on:
         required: false
         type: string
 
-      after_lint:
-        default: true
-        description: Is this workflow run after lint?
+      terraform_version:
+        description: Terraform version that should we use (latest by default)
         required: false
-        type: boolean
+        type: string
+      terraform_workdir:
+        description: Working directory where Terraform files are
+        required: false
+        default: "."
+        type: string
 
     secrets:
+      env:
+        description: List of sensitive environment variables to set (YAML formatted)
+        required: false
+
       terraform_vars:
         description: Sensitive Terraform variables (YAML formatted)
         required: false
@@ -51,14 +60,23 @@ jobs:
           import yaml
           import os
 
+          tf_env = '''
+          ${{ inputs.env }}
+          ${{ secrets.env }}
+          '''
+
           tf_vars = '''
           ${{ inputs.terraform_vars }}
           ${{ secrets.terraform_vars }}
           '''
 
           with open(os.getenv('GITHUB_ENV'), 'a') as env:
-            for var in yaml.safe_load(tf_vars).items():
-              env.write('TF_VAR_%s=%s\n' % var)
+            if tf_env.strip():
+              for var in yaml.safe_load(tf_env).items():
+                env.write('%s=%s\n' % var)
+            if tf_vars.strip():
+              for var in yaml.safe_load(tf_vars).items():
+                env.write('TF_VAR_%s=%s\n' % var)
         shell: python
 
       # --- `terraform init`
