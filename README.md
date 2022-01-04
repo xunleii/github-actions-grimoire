@@ -15,11 +15,10 @@ So, after having read the Github blog post about [keeping our Github Actions DRY
 - [![Iaas - Terraform CI (for pull requests) - Lint](https://github.com/xunleii/github-actions-grimoire/actions/workflows/zzz_run.terraform.pull_requests.yaml/badge.svg)](.github/workflows/terraform.pull_requests.lint.yaml)
   > [See usage here](.github/workflows/zzz_run.terraform.pull_requests.yaml#L17)
   - Checks if your Terraform files are valid and formatted
-  - Comments PRs with error information or plan state
+  - Comments PRs with error information
   - Handles several Terraform projects in a single PR
 - [![Iaas - Terraform CI (for pull requests) - Plan](https://github.com/xunleii/github-actions-grimoire/actions/workflows/zzz_run.terraform.pull_requests.yaml/badge.svg)](.github/workflows/terraform.pull_requests.plan.yaml)
   > [See usage here](.github/workflows/zzz_run.terraform.pull_requests.yaml#L21)
-  - Checks if your Terraform files are valid and formatted
   - Comments PRs with error information or plan state
   - Handles several Terraform projects in a single PR
 
