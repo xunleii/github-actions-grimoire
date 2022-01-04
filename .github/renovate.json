@@ -2,7 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
   "assignAutomerge": true,
+  "automerge": true,
   "automergeStrategy": "auto",
+  "automergeType": "pr",
   "dependencyDashboard": true,
   "labels": ["kind/dependencies"]
 }
