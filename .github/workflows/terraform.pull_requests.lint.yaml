@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # renovate: tag=v2.3.4
-      - uses: hashicorp/setup-terraform@3d8debd658c92063839bc97da5c2427100420dec # renovate: tag=v1.3.2
+      - uses: hashicorp/setup-terraform@ed3a0531877aca392eb870f440d9ae7aba83a6bd # tag=v1.4.0
         with:
           terraform_version: ${{ inputs.terraform_version }}
       - name: Pre-hook Terraform workflow
