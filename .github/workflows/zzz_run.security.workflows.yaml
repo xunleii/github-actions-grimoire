@@ -7,4 +7,4 @@ on:
 
 jobs:
   ci_harden_security:
-    uses: xunleii/github-actions-grimoire/.github/workflows/security.workflows.yaml@117c2a4eae36183464cd513cae3936644ebe0f88
+    uses: xunleii/github-actions-grimoire/.github/workflows/security.workflows.yaml@4acdb2733fff46724444460d1bc2a9ecd22aaa8a
