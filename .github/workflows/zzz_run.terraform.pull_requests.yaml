@@ -14,11 +14,11 @@ on:
 
 jobs:
   tf_project_01-lint:
-    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.lint.yaml@2a82a535b1bdb82ae0ea9e83c44830dd845140a4
+    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.lint.yaml@6b744ce693c210610ce10f01ba82c39caff422df
     with:
       terraform_workdir: fixtures/terraform/project-01
   tf_project_01-plan:
-    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.plan.yaml@2a82a535b1bdb82ae0ea9e83c44830dd845140a4
+    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.plan.yaml@6b744ce693c210610ce10f01ba82c39caff422df
     with:
       terraform_workdir: fixtures/terraform/project-01
       terraform_vars: |
@@ -28,7 +28,7 @@ jobs:
         secret: '***'
 
   tf_project_02-plan:
-    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.plan.yaml@2a82a535b1bdb82ae0ea9e83c44830dd845140a4
+    uses: xunleii/github-actions-grimoire/.github/workflows/terraform.pull_requests.plan.yaml@6b744ce693c210610ce10f01ba82c39caff422df
     with:
       after_lint: false
       terraform_workdir: fixtures/terraform/project-02
